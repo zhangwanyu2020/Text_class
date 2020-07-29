@@ -76,7 +76,25 @@ bert
 
 7、测试结果：f1_score提升很大，micro_f1=0.737，macro_f1=0.314，相比于textcnn几乎翻了一倍
     
-    
+ 
+GCN
+
+
+1、将语料构建为一张Graph，节点为word和doc；节点的feature为词向量，doc则是词向量的加和；边是PMI值和TF-IDF值
+
+2、搭建两层的GraphConvolution
+
+3、训练了90个epoch，隐藏层维度为756，输出维度为95，学习率0.05，损失函数持续下降
+
+4、测试结果，比bert稍好，micro_f1没有明显提升，但macro_f1翻了一倍
+
+Macro average Test Precision, Recall and F1-Score...
+
+(0.5177944301111611, 0.9799458881748833, 0.643836952049565, None)
+
+Micro average Test Precision, Recall and F1-Score...
+
+(0.5890837859496038, 0.9972867048537836, 0.7406661069129583, None)
   
     
     
